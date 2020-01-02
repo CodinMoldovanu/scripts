@@ -25,7 +25,7 @@ fi
 ssh pi@192.168.88.226 "sudo dd if=/dev/mmcblk0" | pv --size ${size} | dd of=rpi_backups/rpi_img_${days}.img.gz
 
 BACKUP_FILE = rpi_backups/rpi_img_${days}.img.gz
-BACKUP_SIZE = $(stat -c%s "$(BACKUP_FILE)")
+BACKUP_SIZE = $(stat -c %s $BACKUP_FILE)
 
 if [[ BACKUP_SIZE == size ]]
 then
